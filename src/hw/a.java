@@ -6,9 +6,8 @@
 package hw;
 
 /**
- *
  * @author rosinka
  */
 class a {
-    
+
 }

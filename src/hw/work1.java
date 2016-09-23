@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class work1 {
     public static void main(String[] args) {
-               
+
         int i;
         int a = 1;
         boolean b = true;
@@ -14,16 +14,16 @@ public class work1 {
         int p = 100;
         double fl = 0.99;
         boolean isOK = true;
-        
+
         hw1(p, fl, isOK);
-        
+
     }
 
     public static void oper(int a, boolean b, boolean c, byte d, int e, byte f) {
         int i;
         Scanner scan = new Scanner(System.in);
         System.out.println("less 3 |  =3  | more 3\n  arif | bool | bit");
-        if(scan.hasNextInt()) {
+        if (scan.hasNextInt()) {
             i = scan.nextInt();
             if (i < 3) {
                 a++;
@@ -40,16 +40,16 @@ public class work1 {
             System.out.println("err");
         }
     }
-    
+
     public static String print(String str) {
-        return str;    
+        return str;
     }
 
     public static void hw1(int p, double fl, boolean isOK) {
 
         System.out.println("Hello, U-Rise!\n" + "There is true, that there are " + p + " percent sucess with " + fl + " happiness." + isOK);
-        
-    }    
-    
+
+    }
+
 }
 
