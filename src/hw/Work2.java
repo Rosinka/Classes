@@ -11,12 +11,12 @@ public class Work2 {
         boolean isOK = true;
 
         System.out.println("case 1 - cond\ncase 2 - tern\ncase 3 - print5\ncase 4 - numbers\ncase 5 - switching\nanother case - err");
-        Scanner sc = new Scanner(System.in);
-        c = sc.nextInt();
+        Scanner scan = new Scanner(System.in);
+        c = scan.nextInt();
         System.out.println("a:");
-        a = sc.nextInt();
+        a = scan.nextInt();
         System.out.println("b:");
-        b = sc.nextInt();
+        b = scan.nextInt();
 
 
         switching(a, b, c, p, fl, isOK);
