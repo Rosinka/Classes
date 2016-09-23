@@ -2,19 +2,21 @@ package hw;
 
 import java.util.Scanner;
 
-public class work1 {
+public class Work1 {
     public static void main(String[] args) {
 
-        int i;
         int a = 1;
         boolean b = true;
         boolean c = false;
         byte d = 32;
         int e = 128;
+        byte f = 47;
         int p = 100;
         double fl = 0.99;
         boolean isOK = true;
 
+        oper(a, b, c, d, e, f);
+        System.out.println(print("myString"));
         hw1(p, fl, isOK);
 
     }
@@ -45,9 +47,9 @@ public class work1 {
         return str;
     }
 
-    public static void hw1(int p, double fl, boolean isOK) {
+    public static String hw1(int p, double fl, boolean isOK) {
 
-        System.out.println("Hello, U-Rise!\n" + "There is true, that there are " + p + " percent sucess with " + fl + " happiness." + isOK);
+        return "Hello, U-Rise!\n" + "There is true, that there are " + p + " percent sucess with " + fl + " happiness." + isOK;
 
     }
 

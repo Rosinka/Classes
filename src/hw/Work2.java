@@ -2,7 +2,7 @@ package hw;
 
 import java.util.Scanner;
 
-public class work2 {
+public class Work2 {
     public static void main(String[] args) {
 
         int a = 0, b = 0, c;
@@ -10,6 +10,9 @@ public class work2 {
         int p = 100;
         double fl = 0.99;
         boolean isOK = true;
+
+        //print5(p, fl, isOK);
+        //numbers();
 
         System.out.println("case 1 - cond\ncase 2 - tern\nanother case - err");
         Scanner sc = new Scanner(System.in);
@@ -24,8 +27,6 @@ public class work2 {
                 break;
             default:
                 System.out.println("err");
-
-                print5(p, fl, isOK);
 
         }
     }
@@ -54,21 +55,22 @@ public class work2 {
         return (a - b) < 5 ? "<5" : ">5";
     }
 
-    public static String hw1(int p, double fl, boolean isOK) {
 
-        return "Hello, U-Rise!\n" + "There is true, that there are " + p + " percent sucess with " + fl + " happiness." + isOK;
 
-    }
-
-    public static String print5(int p, double fl, boolean isOK) {
+    public static void print5(int p, double fl, boolean isOK) {
         int i;
-        String str = null;
 
         for (i = 0; i < 5; i++) {
-            str = hw1(p, fl, isOK);
+            System.out.println(Work1.hw1(p, fl, isOK));
         }
+    }
 
-        return str;
+    public static void numbers() {
+        int i = 1;
+        while (i < 11) {
+            System.out.println(i);
+            i++;
+        }
     }
 
 }
