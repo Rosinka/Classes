@@ -16,7 +16,7 @@ public class Work1 {
         boolean isOK = true;
 
         oper(a, b, c, d, e, f);
-        System.out.println(print("myString"));
+        print("myString");
         hw1(p, fl, isOK);
 
     }
@@ -43,8 +43,8 @@ public class Work1 {
         }
     }
 
-    public static String print(String str) {
-        return str;
+    public static void print(String str) {
+        System.out.println(str);
     }
 
     public static String hw1(int p, double fl, boolean isOK) {
