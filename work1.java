@@ -1,5 +1,3 @@
-# Classes
-
 package hw;
 
 import java.util.Scanner;
@@ -13,13 +11,6 @@ public class work1 {
         boolean c = false;
         byte d = 32;
         int e = 128;
-        byte f = 47;
-        
-        oper(a, b, c, d, e, f);
-        
-        String st = "myString";
-        System.out.println(print(st));
-        
         int p = 100;
         double fl = 0.99;
         boolean isOK = true;
@@ -61,5 +52,4 @@ public class work1 {
     }    
     
 }
-
 
