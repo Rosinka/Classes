@@ -2,11 +2,14 @@ package hw;
 
 import java.util.Scanner;
 
+import static java.lang.Math.sqrt;
+
 public class Work3 {
 
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
+
         System.out.println("Enter array length: ");
         int size = scan.nextInt();
         int arr[] = new int[size];
@@ -14,12 +17,12 @@ public class Work3 {
 
         arrSum(scan, size, arr);
 
-        System.out.println("noRem1: ");
-        double noRem1 = scan.nextDouble();
-        System.out.println("noRem2: ");
-        double noRem2 = scan.nextDouble();
+        System.out.println("noOst1: ");
+        double noOst1 = scan.nextDouble();
+        System.out.println("noOst2: ");
+        double noOst2 = scan.nextDouble();
 
-        noRem(noRem1, noRem2);
+        noOst(noOst1, noOst2);
 
         System.out.println("even1: ");
         double even1 = scan.nextDouble();
@@ -32,8 +35,33 @@ public class Work3 {
 
         hasInt(scan);
 
-        System.out.println("");    
+        System.out.println("eqA: ");
+        double eqA = scan.nextDouble();
+        System.out.println("eqB: ");
+        double eqB = scan.nextDouble();
+        System.out.println("eqC: ");
+        double eqC = scan.nextDouble();
 
+        eqRoots(eqA, eqB, eqC);
+
+    }
+
+    public static void eqRoots(double a, double b, double c) {
+
+        double x1, x2;
+        double d = Math.pow(b, 2) - 4 * a * c;
+
+        if (d > 0) {
+            x1 = (-b + sqrt(d)) / 2 * a;
+            x2 = (-b - sqrt(d)) / 2 * a;
+            System.out.println("D > 0\nRoots: x1 = " + x1 + "\n       x2 = " + x2);
+        } else if (d == 0) {
+            x1 = -b / 2 * a;
+            x2 = -b / 2 * a;
+            System.out.println("D = 0\nRoots: x1 = " + x1 + "\n       x2 = " + x2);
+        } else {
+            System.out.println("D < 0\nNo roots");
+        }
     }
 
     public static void hasInt(Scanner scan) {
@@ -52,7 +80,7 @@ public class Work3 {
         }
     }
 
-    public static void noRem(double a, double b) {
+    public static void noOst(double a, double b) {
         if (a % b == 0) {
             System.out.println("taki da!");
         } else {
@@ -69,7 +97,7 @@ public class Work3 {
         for (int i = 0; i < size; i++) {
             sum += arr[i];
         }
-        System.out.println(sum);
+        System.out.println("Array element sum: " + sum);
     }
 
 }
