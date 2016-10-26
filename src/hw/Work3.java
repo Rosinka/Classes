@@ -2,78 +2,60 @@ package hw;
 
 import java.util.Scanner;
 
-import static java.lang.Math.sqrt;
-
 public class Work3 {
 
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
 
-//        int arr[] = new int[];
-//        System.out.println("Array elements:");
-//
-//        arrSum(scan, arr);
+        arraySumRandom();
 
-        System.out.println("noOst1: ");
-        double noOst1 = scan.nextDouble();
-        System.out.println("noOst2: ");
-        double noOst2 = scan.nextDouble();
+        double num1 = scan.nextDouble();
+        double num2 = scan.nextDouble();
 
-        noRem(noOst1, noOst2);
+        System.out.println(noRem(num1, num2));
 
-        System.out.println("even1: ");
-        double even1 = scan.nextDouble();
-        System.out.println("even2: ");
-        double even2 = scan.nextDouble();
+        double num3 = scan.nextDouble();
+        double num4 = scan.nextDouble();
 
-        evenCheck(even1, even2);
+        System.out.println(evenCheck(num3, num4));
 
-        System.out.println("char: ");
+//        String charStr = scan.next();
 
-        hasInt(scan);
+//        for (char ch : charStr.toCharArray())
+//            System.out.println(intCheck(ch));
 
-        System.out.println("eqA: ");
-        double eqA = scan.nextDouble();
-        System.out.println("eqB: ");
-        double eqB = scan.nextDouble();
-        System.out.println("eqC: ");
-        double eqC = scan.nextDouble();
+        double arguments[] = new double[3];
+        for (int i = 0; i < arguments.length; i++) {
+            arguments[i] = scan.nextDouble();
+        }
 
-        eqRoots(eqA, eqB, eqC);
-
+        roots(arguments);
     }
 
-    public static void eqRoots(double a, double b, double c) {
-
-        double x1, x2;
-        double d = Math.pow(b, 2) - 4 * a * c;
-
+    public static void roots(double arguments[]) {
+        double d = Math.pow(arguments[1], 2) - 4 * arguments[0] * arguments[2];
         if (d > 0) {
-            x1 = getX1(a, b, d);
-            x2 = (-b - sqrt(d)) / 2 * a;
-            System.out.println("D > 0\nRoots: x1 = " + x1 + "\n       x2 = " + x2);
+            double x1 = (-arguments[1] + Math.sqrt(d)) / 2 * arguments[0];
+            double x2 = (-arguments[1] - Math.sqrt(d)) / 2 * arguments[0];
+            System.out.println(x1 + x2);
         } else if (d == 0) {
-            x1 = -b / 2 * a;
-            System.out.println("D = 0\nRoot: x = " + x1);
+            double x1 = -arguments[1] / 2 * arguments[0];
+            double x2 = -arguments[1] / 2 * arguments[0];
+            System.out.println(x1 + x2);
         } else {
-            System.out.println("D < 0\nNo roots");
+            System.out.println("no real roots");
         }
-
     }
 
-    public static double getX1(double a, double b, double d) {
-        double x1;
-        x1 = (-b + sqrt(d)) / 2 * a;
-        return x1;
-    }
-
-    public static void hasInt(Scanner scan) {
-        if (scan.hasNextInt() == true) {
-            System.out.println("it`s int");
-        } else {
-            System.out.println("no int - no fun");
+    public static boolean intCheck(char symbol) {
+        char[] allDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+        for (int i = 0; i < allDigits.length; i++) {
+            if (symbol == allDigits[i]) {
+                return true;
+            }
         }
+        return false;
     }
 
     public static boolean evenCheck(double c, double d) {
@@ -84,12 +66,15 @@ public class Work3 {
         return (a % b == 0);
     }
 
-    public static int arrSum(int[] arr) {
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+    public static void arraySumRandom() {
+        int myArray[] = new int[10];
+        int arraySum = 0;
+        for (int i = 0; i < myArray.length; i++) {
+            myArray[i] = (int) (Math.random() * 10);
+            arraySum += myArray[i];
         }
-        return sum;
+
+        System.out.println(arraySum);
     }
 
 }
