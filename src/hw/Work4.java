@@ -47,7 +47,7 @@ public class Work4 {
         System.out.println(exercise7(number4));
     }
 
-    public static boolean checkTriangle(double a, double b, double c) {
+    private static boolean checkTriangle(double a, double b, double c) {
         if ((a + b > c) & (a + c > b) & (b + c > a)) {
             return true;
         }
@@ -74,9 +74,13 @@ public class Work4 {
         return false;
     }
 
+    private static boolean isoscelesTriangle(int a, int b, int c) {
+        return a == b && a == c && c == b;
+    }
+
     public static boolean exercise3(int line7, int line8, int line9, int line10, int line11, int line12) {
         if (checkTriangle(line7, line8, line9) == true & checkTriangle(line10, line11, line12) == true) {
-            if ((line7 == line8 & line7 == line9 & line9 == line8) & (line10 == line11 & line10 == line12 & line11 == line12)) {
+            if (isoscelesTriangle(line7,line8, line9) && isoscelesTriangle(line10, line11, line12)) {
                 return true;
             }
             return false;
@@ -84,17 +88,36 @@ public class Work4 {
         return false;
     }
 
+    private static int[] digits(int number) {
+        int length = len(number);
+        int[] digits = new int[length];
+        for (int i = 0; i < length; i++) {
+            digits[length - 1 - i] = number % 10;
+            number /= 10;
+        }
+        return digits;
+    }
+
+    private static int len(int number) {
+        int res = 0;
+        while (number / 10 != 0 || number % 10 != 0) {
+            number /= 10;
+            res ++;
+        }
+        return res;
+    }
+
     public static boolean exercise4(int number1) {
         int sum = 0;
-        while (number1 > 0){
-            sum += number1 % 10;
-            number1 /= 10;
+        if (len(number1) != 4) {
+            return false;
         }
 
-        if (sum % 2 == 0) {
-            return true;
+        int[] digits = digits(number1);
+        for (int i = 0; i < len(number1); i++) {
+            sum += digits[i];
         }
-        return false;
+        return sum % 2 == 0 ;
     }
 
     public static boolean exercise5(int number2) {
@@ -114,16 +137,28 @@ public class Work4 {
     }
 
     public static boolean exercise6(int number3) {
-        if (number3 % 10 + (number3 / 10) % 10 == (number3 / 100) % 10 + (number3 / 1000) % 10) {
-            return true;
+        if (len(number3) != 4) {
+            return false;
         }
-        return false;
+        int[] digits = digits(number3);
+        int first = 0, second = 0;
+        for (int i = 0; i < digits.length / 2; i++) {
+            first += digits[i];
+            second += digits[digits.length - 1 - i];
+        }
+        return first == second;
     }
 
     public static boolean exercise7(int number4) {
-        if ((number4 % 10) > (number4 / 10) % 10 & (number4 / 100) % 10 > (number4 / 1000) % 10) {
-            return true;
+        if (len(number4) != 4) {
+            return false;
         }
-        return false;
+        int[] digits = digits(number4);
+        for (int i = 0; i < digits.length - 1; i++) {
+            if (digits[i] < digits[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
