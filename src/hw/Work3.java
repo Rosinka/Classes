@@ -13,38 +13,45 @@ public class Work3 {
         double num1 = scan.nextDouble();
         double num2 = scan.nextDouble();
 
-        System.out.println(noRem(num1, num2));
+        System.out.println("noRem" + noRem(num1, num2));
 
         double num3 = scan.nextDouble();
         double num4 = scan.nextDouble();
 
-        System.out.println(evenCheck(num3, num4));
+        System.out.println("evenCheck" + evenCheck(num3, num4));
+        System.out.println("intCheck num4" + intCheck('3'));
+        System.out.println("intCheck 'a'" + intCheck('a'));
 
-//        String charStr = scan.next();
-
-//        for (char ch : charStr.toCharArray())
-//            System.out.println(intCheck(ch));
-
-        double arguments[] = new double[3];
-        for (int i = 0; i < arguments.length; i++) {
-            arguments[i] = scan.nextDouble();
+        for (int i = 0; i < roots(2, 1, -2).length; i++) {
+            System.out.println("Roots = " + roots(2, 1, -2)[i]);
         }
 
-        roots(arguments);
     }
 
-    public static void roots(double arguments[]) {
-        double d = Math.pow(arguments[1], 2) - 4 * arguments[0] * arguments[2];
+    public static double[] roots(double a, double b, double c) {
+        if (a == 0 && b == 0 && c == 0) {
+            return null;
+        }
+        if (a == 0) {
+            return new double[] {- c / b};
+        }
+        if (a == 0 && b == 0 && c != 0) {
+            return new double[] {0, - b / a};
+        }
+        if (a != 0 && b == 0 && c <= 0) {
+            return new double[]{-Math.sqrt(-c/a), Math.sqrt(-c/a)};
+        }
+        if (a != 0 && b == 0 && c > 0) {
+            return null;
+        }
+        double d = Math.pow(b, 2) - 4 * a * c;
+        if (d == 0) {
+            return new double[] {- b / (2 * a)};
+        }
         if (d > 0) {
-            double x1 = (-arguments[1] + Math.sqrt(d)) / 2 * arguments[0];
-            double x2 = (-arguments[1] - Math.sqrt(d)) / 2 * arguments[0];
-            System.out.println(x1 + x2);
-        } else if (d == 0) {
-            double x1 = -arguments[1] / 2 * arguments[0];
-            double x2 = -arguments[1] / 2 * arguments[0];
-            System.out.println(x1 + x2);
+            return new double[] {- b - Math.sqrt(d) / (2 * a), - b + Math.sqrt(d) / (2 * a)};
         } else {
-            System.out.println("no real roots");
+            return null;
         }
     }
 
