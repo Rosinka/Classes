@@ -3,11 +3,52 @@ package hw;
 /**
  * Created by lana on 31.01.17.
  */
+
+import java.util.Arrays;
+
 public class Work6 {
     public static void main(String[] args) {
 
         System.out.println(fibRecMethod(1));
         System.out.println(fibSumMethod(1));
+        System.out.println(factorial(4));
+        System.out.println(Arrays.toString(factArr(10)));
+        int[] newFactArr = factArr(10);
+        System.out.println(nearestFact(5, newFactArr));
+
+    }
+
+    public static int nearestFact(int n, int... args) {
+        int temp = Math.abs(args[0] - n);
+        int diffIndex = 0;
+        for(int i = 1; i < args.length; i++){
+            int diff = Math.abs(args[i] - n);
+            if(diff < temp){
+                diffIndex = i;
+                temp = diff;
+            }
+        }
+        return args[diffIndex];
+    }
+
+    public static int[] factArr(int n) {
+        int[] factArr = new int[n];
+        for (int i = 0; i < n; i++) {
+            factArr[i] = factorial(i);
+        }
+        return factArr;
+    }
+
+    public static int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+        do {
+            int fact = 1;
+            for (int i = 2; i <= n; i++)
+                fact *= i;
+            return fact;
+        } while (n < 0);
     }
 
     public static int fibSumMethod(int pos) {

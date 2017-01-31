@@ -16,7 +16,7 @@ public class Test1 {
         result(newDigits, second);
     }
 
-    public static void result (int[] digits, int second) {
+    public static void result(int[] digits, int second) {
         switch (second) {
             case 1:
                 System.out.println(Arrays.toString(digits));
@@ -32,7 +32,7 @@ public class Test1 {
         }
     }
 
-    public static int[] digits (int number, int second) {
+    public static int[] digits(int number, int second) {
         int[] digits = Work4.digits(number);
         digits = insertElement(digits, second, 1);
         System.out.println(Arrays.toString(digits));
