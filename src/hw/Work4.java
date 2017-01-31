@@ -47,7 +47,7 @@ public class Work4 {
         System.out.println(exercise7(number4));
     }
 
-    private static boolean checkTriangle(double a, double b, double c) {
+    public static boolean checkTriangle(double a, double b, double c) {
         if ((a + b > c) & (a + c > b) & (b + c > a)) {
             return true;
         }
@@ -63,7 +63,7 @@ public class Work4 {
         }
         return false;
     }
-    
+
     public static boolean exercise2(double line4, double line5, double line6) {
         if (checkTriangle(line4, line5, line6) == true) {
             if (line4 == line5 | line4 == line6 | line5 == line6) {
@@ -74,13 +74,13 @@ public class Work4 {
         return false;
     }
 
-    private static boolean isoscelesTriangle(int a, int b, int c) {
+    public static boolean isoscelesTriangle(int a, int b, int c) {
         return a == b && a == c && c == b;
     }
 
     public static boolean exercise3(int line7, int line8, int line9, int line10, int line11, int line12) {
         if (checkTriangle(line7, line8, line9) == true & checkTriangle(line10, line11, line12) == true) {
-            if (isoscelesTriangle(line7,line8, line9) && isoscelesTriangle(line10, line11, line12)) {
+            if (isoscelesTriangle(line7, line8, line9) && isoscelesTriangle(line10, line11, line12)) {
                 return true;
             }
             return false;
@@ -88,7 +88,7 @@ public class Work4 {
         return false;
     }
 
-    private static int[] digits(int number) {
+    public static int[] digits(int number) {
         int length = len(number);
         int[] digits = new int[length];
         for (int i = 0; i < length; i++) {
@@ -98,11 +98,11 @@ public class Work4 {
         return digits;
     }
 
-    private static int len(int number) {
+    public static int len(int number) {
         int res = 0;
         while (number / 10 != 0 || number % 10 != 0) {
             number /= 10;
-            res ++;
+            res++;
         }
         return res;
     }
@@ -117,7 +117,7 @@ public class Work4 {
         for (int i = 0; i < len(number1); i++) {
             sum += digits[i];
         }
-        return sum % 2 == 0 ;
+        return sum % 2 == 0;
     }
 
     public static boolean exercise5(int number2) {

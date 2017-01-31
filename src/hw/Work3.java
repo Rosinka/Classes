@@ -33,23 +33,23 @@ public class Work3 {
             return null;
         }
         if (a == 0) {
-            return new double[] {- c / b};
+            return new double[]{-c / b};
         }
         if (a == 0 && b == 0 && c != 0) {
-            return new double[] {0, - b / a};
+            return new double[]{0, -b / a};
         }
         if (a != 0 && b == 0 && c <= 0) {
-            return new double[]{-Math.sqrt(-c/a), Math.sqrt(-c/a)};
+            return new double[]{-Math.sqrt(-c / a), Math.sqrt(-c / a)};
         }
         if (a != 0 && b == 0 && c > 0) {
             return null;
         }
         double d = Math.pow(b, 2) - 4 * a * c;
         if (d == 0) {
-            return new double[] {- b / (2 * a)};
+            return new double[]{-b / (2 * a)};
         }
         if (d > 0) {
-            return new double[] {- b - Math.sqrt(d) / (2 * a), - b + Math.sqrt(d) / (2 * a)};
+            return new double[]{-b - Math.sqrt(d) / (2 * a), -b + Math.sqrt(d) / (2 * a)};
         } else {
             return null;
         }
@@ -82,6 +82,14 @@ public class Work3 {
         }
 
         System.out.println(arraySum);
+    }
+
+    public static int arraySum(int[] myArray) {
+        int arraySum = 0;
+        for (int i = 0; i < myArray.length; i++) {
+            arraySum += myArray[i];
+        }
+        return arraySum;
     }
 
 }
