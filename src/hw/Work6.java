@@ -25,8 +25,7 @@ public class Work6 {
 
     public static int numFromArrList(ArrayList<Integer> num) {
         StringBuilder strNum = new StringBuilder();
-        for (int n : num)
-        {
+        for (int n : num) {
             strNum.append(n);
         }
         int finalInt = Integer.parseInt(strNum.toString());
@@ -44,8 +43,7 @@ public class Work6 {
         return num;
     }
 
-    public static boolean isNumeric(String str)
-    {
+    public static boolean isNumeric(String str) {
         return str.matches("[+-]?\\d*(\\.\\d+)?");
     }
 
