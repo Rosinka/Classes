@@ -4,7 +4,9 @@ package hw;
  * Created by lana on 31.01.17.
  */
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.lang.String;
 
 public class Work6 {
     public static void main(String[] args) {
@@ -15,15 +17,44 @@ public class Work6 {
         System.out.println(Arrays.toString(factArr(10)));
         int[] newFactArr = factArr(10);
         System.out.println(nearestFact(5, newFactArr));
+        System.out.println(isNumeric("123456"));
+        System.out.println(getNumeric("12354"));
+        ArrayList<Integer> newNum = getNumeric("1234567");
+        System.out.println(numFromArrList(newNum));
+    }
 
+    public static int numFromArrList(ArrayList<Integer> num) {
+        StringBuilder strNum = new StringBuilder();
+        for (int n : num)
+        {
+            strNum.append(n);
+        }
+        int finalInt = Integer.parseInt(strNum.toString());
+        return finalInt;
+    }
+
+    public static ArrayList<Integer> getNumeric(String str) {
+        ArrayList<Integer> num = new ArrayList<Integer>();
+        if (isNumeric(str) == true) {
+            for (char ch : str.toCharArray()) {
+                int i = Character.getNumericValue(ch);
+                num.add(i);
+            }
+        }
+        return num;
+    }
+
+    public static boolean isNumeric(String str)
+    {
+        return str.matches("[+-]?\\d*(\\.\\d+)?");
     }
 
     public static int nearestFact(int n, int... args) {
         int temp = Math.abs(args[0] - n);
         int diffIndex = 0;
-        for(int i = 1; i < args.length; i++){
+        for (int i = 1; i < args.length; i++) {
             int diff = Math.abs(args[i] - n);
-            if(diff < temp){
+            if (diff < temp) {
                 diffIndex = i;
                 temp = diff;
             }
