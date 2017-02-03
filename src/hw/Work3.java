@@ -92,4 +92,13 @@ public class Work3 {
         return arraySum;
     }
 
+    public static int[] arrayRand() {
+        int myArray[] = new int[10];
+        for (int i = 0; i < myArray.length; i++) {
+            myArray[i] = (int) (Math.random() * 10);
+        }
+
+        return myArray;
+    }
+
 }
