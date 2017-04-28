@@ -5,36 +5,40 @@ package hw;
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.lang.String;
 
 public class Work6 {
     public static void main(String[] args) {
 
         System.out.println(fibRecMethod(1));
-        System.out.println(fibSumMethod(1));
-        System.out.println(factorial(4));
-        System.out.println(Arrays.toString(factArr(10)));
-        int[] newFactArr = factArr(10);
-        System.out.println(nearestFact(5, newFactArr));
-        System.out.println(isNumeric("123456"));
+        System.out.println(fibSumMethod(7));
+        System.out.println(factorial(5));
+        System.out.println(nearFact(20));
+        System.out.println(isNumeric("cc"));
         System.out.println(getNumeric("12354"));
         ArrayList<Integer> newNum = getNumeric("1234567");
-        System.out.println(numFromArrList(newNum));
+        numFromString("vv222vv343");
     }
 
-    public static int numFromArrList(ArrayList<Integer> num) {
-        StringBuilder strNum = new StringBuilder();
-        for (int n : num) {
-            strNum.append(n);
+    private static ArrayList<Integer> numFromString(String str) {
+        ArrayList<Integer> finalNumber = new ArrayList<Integer>();
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            if (isDigit(charArray[i])) {
+                int value = Character.getNumericValue(charArray[i]);
+                finalNumber.add(value);
+            }
         }
-        int finalInt = Integer.parseInt(strNum.toString());
-        return finalInt;
+        return finalNumber;
+    }
+
+    private static boolean isDigit(char ch) {
+        return Character.isDigit(ch);
     }
 
     public static ArrayList<Integer> getNumeric(String str) {
         ArrayList<Integer> num = new ArrayList<Integer>();
-        if (isNumeric(str) == true) {
+        if (isNumeric(str)) {
             for (char ch : str.toCharArray()) {
                 int i = Character.getNumericValue(ch);
                 num.add(i);
@@ -47,17 +51,14 @@ public class Work6 {
         return str.matches("[+-]?\\d*(\\.\\d+)?");
     }
 
-    public static int nearestFact(int n, int... args) {
-        int temp = Math.abs(args[0] - n);
-        int diffIndex = 0;
-        for (int i = 1; i < args.length; i++) {
-            int diff = Math.abs(args[i] - n);
-            if (diff < temp) {
-                diffIndex = i;
-                temp = diff;
-            }
+    public static int nearFact(int n) {
+        int index = 1, buff = 1;
+        while (factorial(index) < n) {
+            index++;
+            buff = factorial(index);
         }
-        return args[diffIndex];
+
+        return (buff - n > n - factorial(index - 1)) ? factorial(index - 1) : factorial(index);
     }
 
     public static int[] factArr(int n) {
@@ -69,39 +70,43 @@ public class Work6 {
     }
 
     public static int factorial(int n) {
+        if (n < 0) {
+            return 0;
+        }
         if (n == 0 || n == 1) {
             return 1;
         }
-        do {
-            int fact = 1;
-            for (int i = 2; i <= n; i++)
-                fact *= i;
-            return fact;
-        } while (n < 0);
+        int fact = 1;
+        for (int i = 2; i <= n; i++)
+            fact *= i;
+        return fact;
     }
 
     public static int fibSumMethod(int pos) {
+        if (pos <= 0) {
+            return 0;
+        }
         if (pos == 1 || pos == 2) {
             return 1;
         }
         int pos1 = 1;
-        int pos2 = 1;
-        int i = 2;
-        int fibSum = 0;
+        int i = 1;
+        int fibSum = 1;
         while (i < pos) {
-            fibSum = pos1 + pos2;
-            pos1 = pos2;
-            pos2 = fibSum;
+            pos1 = fibSum - pos1;
+            fibSum = fibSum + pos1;
             i++;
         }
         return fibSum;
     }
 
     public static int fibRecMethod(int pos) {
+        if (pos <= 0) {
+            return 0;
+        }
         if (pos == 1 || pos == 2) {
             return 1;
         }
         return fibRecMethod(pos - 1) + fibRecMethod(pos - 2);
     }
-
 }
