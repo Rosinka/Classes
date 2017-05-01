@@ -1,6 +1,7 @@
 package hw;
 
-import java.lang.reflect.Array;
+import sun.text.resources.cldr.ia.FormatData_ia;
+
 import java.util.Arrays;
 
 /**
@@ -9,16 +10,28 @@ import java.util.Arrays;
 public class Work7 {
     public static void main(String[] args) {
 
-        int [] arr = Work3.arrayRand();
-        System.out.println(arrPart(arr, 2, 5));
+        int[] arrayRand = Work3.arrayRand();
+        System.out.println(partArray(arrayRand, 2, 5));
+        evenArray(106, 120);
 
     }
 
-    public static int[] arrPart(int[] arr, int srcPos, int destPos) {
-        int [] arrPart = new int[destPos - srcPos];
-        System.arraycopy(arr, srcPos, arrPart, destPos, arr.length);
+    public static String partArray(int[] arr, int srcPos, int length) {
+        int[] arrPart = new int[length];
+        System.arraycopy(arr, srcPos, arrPart, 0, length);
         System.out.println(Arrays.toString(arr));
-        return arrPart;
+        return Arrays.toString(arrPart);
     }
+
+    public static void evenArray(int firstDigit, int secondDigit) {
+        int[] array = new int[secondDigit];
+        for (int i = firstDigit - 1; i < secondDigit; i++) {
+            array[i] = i + 1;
+            if ((array[i] % 2) == 0) {
+                System.out.println("Even element = " + array[i]);
+            }
+        }
+    }
+
 
 }
