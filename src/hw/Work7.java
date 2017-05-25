@@ -13,8 +13,8 @@ public class Work7 {
 //        int[] arrayRand = Work3.arrayRand();
 //        System.out.println(partArray(arrayRand, 2, 5));
 //        evenArray(106, 120);
-        evenDigit(552647499);
-
+//        evenDigit(552647499);
+//        System.out.println(isPalindromeNumber(arrayToInt(removeMaxElementNumber(1234773721))));
     }
 
     public static String partArray(int[] arr, int srcPos, int length) {
@@ -44,7 +44,7 @@ public class Work7 {
         return digits;
     }
 
-    public static void evenDigit(int number) {
+    public static void evenMinMaxSumNumber(int number) {
         int[] digits = digits(number);
         int min = digits[0];
         int max = digits[0];
@@ -63,4 +63,52 @@ public class Work7 {
             System.out.println("max + min = " + (max + min) + " :: Not even");
         }
     }
+
+    public static int maxDigit(int number) {
+        int[] digits = digits(number);
+        int max = digits[0], maxIndex = 0;
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] > max) {
+                max = digits[i];
+//                maxIndex = i;
+            }
+        }
+        return max;
+    }
+
+    public static int[] removeMaxElementNumber(int number) {
+        int maxDigit = maxDigit(number);
+        int[] digits = digits(number);
+        int[] digitsNew = new int[0];
+        for (int i = 0; i < digits.length; i++) {
+            if (digits[i] != maxDigit) {
+                digitsNew = addElement(digitsNew, digits[i]);
+            }
+        }
+
+        return digitsNew;
+    }
+
+    private static int arrayToInt(int[] array) {
+        StringBuilder strNum = new StringBuilder();
+
+        for (int num : array) {
+            strNum.append(num);
+        }
+        int finalInt = Integer.parseInt(strNum.toString());
+        return finalInt;
+    }
+
+    private static int[] addElement(int[] array, int element) {
+        int[] newArray = new int[array.length + 1];
+
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+
+        newArray[newArray.length - 1] = element;
+        return newArray;
+    }
+
+
 }
