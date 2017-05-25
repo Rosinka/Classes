@@ -17,10 +17,10 @@ public class Work6 {
         System.out.println(isNumeric("cc"));
         System.out.println(getNumeric("12354"));
         ArrayList<Integer> newNum = getNumeric("1234567");
-        numFromString("vv222vv343");
+        System.out.println(numFromString("vv222vv343"));
     }
 
-    private static ArrayList<Integer> numFromString(String str) {
+    public static ArrayList<Integer> numFromString(String str) {
         ArrayList<Integer> finalNumber = new ArrayList<Integer>();
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length; i++) {

@@ -13,13 +13,13 @@ public class Work4 {
         int line2 = scan.nextInt();
         int line3 = scan.nextInt();
 
-        System.out.println(exercise1(line1, line2, line3));
+        System.out.println(isRectangularTriangle(line1, line2, line3));
 
         int line4 = scan.nextInt();
         int line5 = scan.nextInt();
         int line6 = scan.nextInt();
 
-        System.out.println(exercise2(line4, line5, line6));
+        System.out.println(checkIsoscelesTriangle(line4, line5, line6));
 
         int line7 = scan.nextInt();
         int line8 = scan.nextInt();
@@ -28,23 +28,23 @@ public class Work4 {
         int line11 = scan.nextInt();
         int line12 = scan.nextInt();
 
-        System.out.println(exercise3(line7, line8, line9, line10, line11, line12));
+        System.out.println(checkEquitableTriangle(line7, line8, line9, line10, line11, line12));
 
         int number1 = scan.nextInt();
 
-        System.out.println(exercise4(number1));
+        System.out.println(isEvenSumNumber(number1));
 
         int number2 = scan.nextInt();
 
-        System.out.println(exercise5(number2));
+        System.out.println(isPalindromeNumber(number2));
 
         int number3 = scan.nextInt();
 
-        System.out.println(exercise6(number3));
+        System.out.println(isEqualHalfSum(number3));
 
         int number4 = scan.nextInt();
 
-        System.out.println(exercise7(number4));
+        System.out.println(isDescendNumber(number4));
     }
 
     public static boolean checkTriangle(double a, double b, double c) {
@@ -54,7 +54,7 @@ public class Work4 {
         return false;
     }
 
-    public static boolean exercise1(double line1, double line2, double line3) {
+    public static boolean isRectangularTriangle(double line1, double line2, double line3) {
         if (checkTriangle(line1, line2, line3) == true) {
             if (line1 == sqrt(Math.pow(line2, 2) + Math.pow(line3, 2)) | line2 == sqrt(Math.pow(line1, 2) + Math.pow(line3, 2)) | line3 == sqrt(Math.pow(line2, 2) + Math.pow(line1, 2))) {
                 return true;
@@ -64,7 +64,7 @@ public class Work4 {
         return false;
     }
 
-    public static boolean exercise2(double line4, double line5, double line6) {
+    public static boolean checkIsoscelesTriangle(double line4, double line5, double line6) {
         if (checkTriangle(line4, line5, line6) == true) {
             if (line4 == line5 | line4 == line6 | line5 == line6) {
                 return true;
@@ -78,7 +78,7 @@ public class Work4 {
         return a == b && a == c && c == b;
     }
 
-    public static boolean exercise3(int line7, int line8, int line9, int line10, int line11, int line12) {
+    public static boolean checkEquitableTriangle(int line7, int line8, int line9, int line10, int line11, int line12) {
         if (checkTriangle(line7, line8, line9) == true & checkTriangle(line10, line11, line12) == true) {
             if (isoscelesTriangle(line7, line8, line9) && isoscelesTriangle(line10, line11, line12)) {
                 return true;
@@ -107,21 +107,21 @@ public class Work4 {
         return res;
     }
 
-    public static boolean exercise4(int number1) {
+    public static boolean isEvenSumNumber(int number) {
         int sum = 0;
-        if (len(number1) != 4) {
+        if (len(number) != 4) {
             return false;
         }
 
-        int[] digits = digits(number1);
-        for (int i = 0; i < len(number1); i++) {
+        int[] digits = digits(number);
+        for (int i = 0; i < len(number); i++) {
             sum += digits[i];
         }
         return sum % 2 == 0;
     }
 
-    public static boolean exercise5(int number2) {
-        int palindrome = number2;
+    public static boolean isPalindromeNumber(int number) {
+        int palindrome = number;
         int reverse = 0;
 
         while (palindrome != 0) {
@@ -130,17 +130,17 @@ public class Work4 {
             palindrome = palindrome / 10;
         }
 
-        if (number2 == reverse) {
+        if (number == reverse) {
             return true;
         }
         return false;
     }
 
-    public static boolean exercise6(int number3) {
-        if (len(number3) != 4) {
+    public static boolean isEqualHalfSum(int number) {
+        if (len(number) != 4) {
             return false;
         }
-        int[] digits = digits(number3);
+        int[] digits = digits(number);
         int first = 0, second = 0;
         for (int i = 0; i < digits.length / 2; i++) {
             first += digits[i];
@@ -149,11 +149,11 @@ public class Work4 {
         return first == second;
     }
 
-    public static boolean exercise7(int number4) {
-        if (len(number4) != 4) {
+    public static boolean isDescendNumber(int number) {
+        if (len(number) != 4) {
             return false;
         }
-        int[] digits = digits(number4);
+        int[] digits = digits(number);
         for (int i = 0; i < digits.length - 1; i++) {
             if (digits[i] < digits[i + 1]) {
                 return false;
