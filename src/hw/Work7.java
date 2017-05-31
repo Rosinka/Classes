@@ -1,5 +1,6 @@
 package hw;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static hw.Work4.len;
@@ -15,7 +16,9 @@ public class Work7 {
 //        evenArray(106, 120);
 //        evenDigit(552647499);
 //        System.out.println(isPalindromeNumber(arrayToInt(removeMaxElementNumber(1234773721))));
-        System.out.println(afithmProressionDigits(10, 20));
+//        numbersOfAP(129, 999);
+        System.out.println(decToBin(49));
+
     }
 
     public static String partArray(int[] arr, int srcPos, int length) {
@@ -65,17 +68,25 @@ public class Work7 {
         }
     }
 
-    public static String afithmProressionDigits(int firstNumber, int secondNumber) {
+    public static void numbersOfAP(int firstNumber, int secondNumber) {
         int[] array = new int[secondNumber - firstNumber - 1];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = firstNumber + i + 1;
-            int[] arrayElement = digits(array[i]);
-//            System.out.println(Arrays.toString(arrayElement));
-            for (int element : arrayElement) {
-                System.out.println(element);
+        for (int i = 1; i < array.length; i++) {
+            array[i] = firstNumber + i;
+            if (checkAP(array[i]) == true) {
+                System.out.println(array[i]);
             }
         }
-        return Arrays.toString(array);
+    }
+
+    private static boolean checkAP(int array) {
+        int[] arrayElement = digits(array);
+        int differenceAP = arrayElement[1] - arrayElement[0];
+        for (int i = 2; i < arrayElement.length; i++) {
+            if (!( (arrayElement[i] - arrayElement[i - 1]) == differenceAP)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static int maxDigit(int number) {
@@ -124,5 +135,14 @@ public class Work7 {
         return newArray;
     }
 
+    public static ArrayList<Integer> decToBin(int decNumber) {
+        ArrayList<Integer> binDigits = new ArrayList<Integer>();
+        while (decNumber > 0) {
+            int binDigit = decNumber % 2;
+            decNumber /= 2;
+            binDigits.add(0, binDigit);
+        }
+        return binDigits;
+    }
 
 }
