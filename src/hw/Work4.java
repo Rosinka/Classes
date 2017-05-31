@@ -1,50 +1,48 @@
 package hw;
 
-import java.util.Scanner;
-
 import static java.lang.Math.sqrt;
 
 public class Work4 {
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner(System.in);
+//        Scanner scan = new Scanner(System.in);
+//
+//        int line1 = scan.nextInt();
+//        int line2 = scan.nextInt();
+//        int line3 = scan.nextInt();
+//
+//        System.out.println(isRectangularTriangle(line1, line2, line3));
+//
+//        int line4 = scan.nextInt();
+//        int line5 = scan.nextInt();
+//        int line6 = scan.nextInt();
+//
+//        System.out.println(checkIsoscelesTriangle(line4, line5, line6));
+//
+//        int line7 = scan.nextInt();
+//        int line8 = scan.nextInt();
+//        int line9 = scan.nextInt();
+//        int line10 = scan.nextInt();
+//        int line11 = scan.nextInt();
+//        int line12 = scan.nextInt();
+//
+//        System.out.println(checkEquitableTriangle(line7, line8, line9, line10, line11, line12));
+//
+//        int number1 = scan.nextInt();
+//
+//        System.out.println(isEvenSumNumber(number1));
+//
+//        int number2 = scan.nextInt();
+//
+//        System.out.println(isPalindromeNumber(number2));
+//
+//        int number3 = scan.nextInt();
+//
+//        System.out.println(isEqualHalfSum(number3));
+//
+//        int number4 = scan.nextInt();
 
-        int line1 = scan.nextInt();
-        int line2 = scan.nextInt();
-        int line3 = scan.nextInt();
-
-        System.out.println(isRectangularTriangle(line1, line2, line3));
-
-        int line4 = scan.nextInt();
-        int line5 = scan.nextInt();
-        int line6 = scan.nextInt();
-
-        System.out.println(checkIsoscelesTriangle(line4, line5, line6));
-
-        int line7 = scan.nextInt();
-        int line8 = scan.nextInt();
-        int line9 = scan.nextInt();
-        int line10 = scan.nextInt();
-        int line11 = scan.nextInt();
-        int line12 = scan.nextInt();
-
-        System.out.println(checkEquitableTriangle(line7, line8, line9, line10, line11, line12));
-
-        int number1 = scan.nextInt();
-
-        System.out.println(isEvenSumNumber(number1));
-
-        int number2 = scan.nextInt();
-
-        System.out.println(isPalindromeNumber(number2));
-
-        int number3 = scan.nextInt();
-
-        System.out.println(isEqualHalfSum(number3));
-
-        int number4 = scan.nextInt();
-
-        System.out.println(isDescendNumber(number4));
+        System.out.println(isDescendNumber(5432));
     }
 
     public static boolean checkTriangle(double a, double b, double c) {
