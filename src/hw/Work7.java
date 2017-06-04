@@ -17,7 +17,7 @@ public class Work7 {
 //        evenDigit(552647499);
 //        System.out.println(isPalindromeNumber(arrayToInt(removeMaxElementNumber(1234773721))));
 //        numbersOfAP(129, 999);
-        System.out.println(decToBin(49));
+        System.out.println(decToBinFloat(9.15));
 
     }
 
@@ -82,7 +82,7 @@ public class Work7 {
         int[] arrayElement = digits(array);
         int differenceAP = arrayElement[1] - arrayElement[0];
         for (int i = 2; i < arrayElement.length; i++) {
-            if (!( (arrayElement[i] - arrayElement[i - 1]) == differenceAP)) {
+            if (!((arrayElement[i] - arrayElement[i - 1]) == differenceAP)) {
                 return false;
             }
         }
@@ -135,14 +135,37 @@ public class Work7 {
         return newArray;
     }
 
-    public static ArrayList<Integer> decToBin(int decNumber) {
-        ArrayList<Integer> binDigits = new ArrayList<Integer>();
+    public static ArrayList<Long> decToBin(long decNumber) {
+        ArrayList<Long> binDigits = new ArrayList<Long>();
         while (decNumber > 0) {
-            int binDigit = decNumber % 2;
+            long binDigit = decNumber % 2;
             decNumber /= 2;
             binDigits.add(0, binDigit);
         }
         return binDigits;
+    }
+
+    public static String decToBinFloat(double decNumber) {
+        double fracPart = decNumber - (long) decNumber;
+        ArrayList<Long> fracBinDigits = new ArrayList<Long>();
+        for (int i = 0; i < 10; i++) {
+            fracPart *= 2;
+            long fracBinDigit = (long) fracPart;
+            fracBinDigits.add(fracBinDigits.size(), fracBinDigit);
+            if (fracBinDigit >= 1) {
+                fracPart -= fracBinDigit;
+            }
+        }
+        ArrayList<Long> intPartToBin = decToBin((long) decNumber);
+        return listLongToString(intPartToBin) + "," + listLongToString(fracBinDigits);
+    }
+
+    private static String listLongToString(ArrayList<Long> list) {
+        StringBuilder sb = new StringBuilder();
+        for (Long x : list) {
+            sb.append(x.toString());
+        }
+        return String.valueOf(sb);
     }
 
 }
