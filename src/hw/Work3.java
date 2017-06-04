@@ -92,8 +92,8 @@ public class Work3 {
         return arraySum;
     }
 
-    public static int[] arrayRand() {
-        int myArray[] = new int[10];
+    public static int[] arrayRand(int size) {
+        int myArray[] = new int[size];
         for (int i = 0; i < myArray.length; i++) {
             myArray[i] = (int) (Math.random() * 10);
         }
