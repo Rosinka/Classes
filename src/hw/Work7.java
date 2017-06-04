@@ -124,7 +124,7 @@ public class Work7 {
         return finalInt;
     }
 
-    private static int[] addElement(int[] array, int element) {
+    public static int[] addElement(int[] array, int element) {
         int[] newArray = new int[array.length + 1];
 
         for (int i = 0; i < array.length; i++) {
