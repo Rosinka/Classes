@@ -5,12 +5,12 @@ package hw;
  */
 public class Work8 {
     public static void main(String[] args) {
-        int[][] grid = gridRandom(5, 5);
+        int[][] grid = gridRandom(7, 7);
 //        searchGridDigit(grid, 5);
-//        copyPartGrid(grid, 2, 2, 3, 3);
+        copyPartGrid(grid, 1, 1, 3, 3);
 //        System.out.println(mainDiagonalSum(grid));
 //        System.out.println(secondDiagonalAverage(grid));
-
+//        upperTriangleSum(grid);
     }
 
     public static int[][] gridRandom(int rows, int columns) {
@@ -44,10 +44,10 @@ public class Work8 {
     }
 
     public static void copyPartGrid(int[][] grid, int startRow, int startCol, int endRow, int endCol) {
-        int[][] newGrid = new int[grid.length][grid[0].length];
+        int[][] newGrid = new int[grid.length - startRow - endRow][grid[0].length - startCol - endCol];
         for (int i = startRow - 1; i <= endRow - 1; i++) {
             for (int j = startCol - 1; j <= endCol - 1; j++) {
-                newGrid[i][j] = grid[i][j];
+                newGrid[i - startRow + 1][j - startCol + 1] = grid[i][j];
             }
         }
         System.out.println("-----------------");
@@ -69,6 +69,17 @@ public class Work8 {
             count++;
         }
         return sum / count;
+    }
+
+    public static void upperTriangleSum(int[][] grid) {
+        int sum = 0;
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (i + j < grid.length - 1 && i - j < 0) {
+                    System.out.println(grid[i][j] + "[" + i + "]" + "[" + j + "]");
+                }
+            }
+        }
     }
 
 }
