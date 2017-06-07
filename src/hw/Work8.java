@@ -7,10 +7,10 @@ public class Work8 {
     public static void main(String[] args) {
         int[][] grid = gridRandom(7, 7);
 //        searchGridDigit(grid, 5);
-        copyPartGrid(grid, 1, 1, 3, 3);
+//        copyPartGrid(grid, 1, 1, 3, 3);
 //        System.out.println(mainDiagonalSum(grid));
 //        System.out.println(secondDiagonalAverage(grid));
-//        upperTriangleSum(grid);
+//        System.out.println(upperTriangleSum(grid));
     }
 
     public static int[][] gridRandom(int rows, int columns) {
@@ -71,15 +71,17 @@ public class Work8 {
         return sum / count;
     }
 
-    public static void upperTriangleSum(int[][] grid) {
+    public static int upperTriangleSum(int[][] grid) {
         int sum = 0;
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (i + j < grid.length - 1 && i - j < 0) {
+                    sum += grid[i][j];
                     System.out.println(grid[i][j] + "[" + i + "]" + "[" + j + "]");
                 }
             }
         }
+        return sum;
     }
 
 }
