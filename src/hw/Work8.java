@@ -1,11 +1,19 @@
 package hw;
 
+import java.util.Random;
+
 /**
  * Created by lana on 04.06.17.
  */
 public class Work8 {
+
+        private static final int ROWS = 7;
+        private static final int COLUMNS = 7;
+        private static final int RANDOM_MAX_NUMBER = 100;
+
     public static void main(String[] args) {
-        int[][] grid = gridRandom(7, 7);
+
+        int[][] grid = gridRandom();
 //        searchGridDigit(grid, 5);
 //        copyPartGrid(grid, 1, 1, 3, 3);
 //        System.out.println(mainDiagonalSum(grid));
@@ -13,11 +21,13 @@ public class Work8 {
 //        System.out.println(upperTriangleSum(grid));
     }
 
-    public static int[][] gridRandom(int rows, int columns) {
-        int[][] grid = new int[rows][columns];
+    public static int[][] gridRandom() {
+
+        int[][] grid = new int[ROWS][COLUMNS];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                grid[i][j] = (int) (Math.random() * 10);
+//                grid[i][j] = (int) (Math.random() * 10);
+                grid[i][j] = new Random().nextInt(RANDOM_MAX_NUMBER);
             }
         }
         printGrid(grid, grid.length, grid[0].length);
