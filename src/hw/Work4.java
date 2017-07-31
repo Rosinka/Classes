@@ -118,6 +118,7 @@ public class Work4 {
         return sum % 2 == 0;
     }
 
+    // TODO: check
     public static boolean isPalindromeNumber(int number) {
         int palindrome = number;
         int reverse = 0;

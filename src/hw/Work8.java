@@ -9,7 +9,7 @@ public class Work8 {
 
     private static final int ROWS = 5;
     private static final int COLUMNS = 5;
-    private static final int RANDOM_MAX_NUMBER = 5;
+    private static final int RANDOM_MAX_NUMBER = 20;
 
     public static void main(String[] args) {
 
@@ -19,7 +19,7 @@ public class Work8 {
 //        System.out.println(mainDiagonalSum(grid));
 //        System.out.println(secondDiagonalAverage(grid));
 //        System.out.println(upperTriangleSum(grid));
-//        printGrid(frequencyNumbers(grid));
+        printGrid(frequencyNumbers(grid));
 //        maxGridNumber(grid);
 //        secondDiagonalMax(grid);
     }
@@ -100,7 +100,7 @@ public class Work8 {
     public static int[][] frequencyNumbers(int[][] grid) {
 
         int freq[][] = new int[ROWS * COLUMNS][2];
-        for (int i = 0; i < grid.length; i++) {
+        for (int i = 0; i < freq.length; i++) {
             freq[i][0] = RANDOM_MAX_NUMBER + 1;
             freq[i][1] = 0;
         }

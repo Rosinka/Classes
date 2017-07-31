@@ -20,6 +20,7 @@ public class Work6 {
         System.out.println(numFromString("vv222vv343"));
     }
 
+    // TODO: integer
     public static ArrayList<Integer> numFromString(String str) {
         ArrayList<Integer> finalNumber = new ArrayList<Integer>();
         char[] charArray = str.toCharArray();
@@ -32,10 +33,12 @@ public class Work6 {
         return finalNumber;
     }
 
+    // TODO: rework
     private static boolean isDigit(char ch) {
         return Character.isDigit(ch);
     }
 
+    // TODO: integer
     public static ArrayList<Integer> getNumeric(String str) {
         ArrayList<Integer> num = new ArrayList<Integer>();
         if (isNumeric(str)) {
@@ -47,20 +50,23 @@ public class Work6 {
         return num;
     }
 
+    // TODO: rework
     public static boolean isNumeric(String str) {
         return str.matches("[+-]?\\d*(\\.\\d+)?");
     }
 
+    // TODO: check if worked
     public static int nearFact(int n) {
         int index = 1, buff = 1;
-        while (factorial(index) < n) {
+        while (buff < n) {
             index++;
             buff = factorial(index);
         }
 
-        return (buff - n > n - factorial(index - 1)) ? factorial(index - 1) : factorial(index);
+        return (buff - n > n - buff / index - 1) ? buff / index - 1 : buff;
     }
 
+    // TODO: rework without using factorial()
     public static int[] factArr(int n) {
         int[] factArr = new int[n];
         for (int i = 0; i < n; i++) {

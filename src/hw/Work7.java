@@ -16,11 +16,11 @@ public class Work7 {
 //        evenArray(106, 120);
 //        evenDigit(552647499);
 //        System.out.println(isPalindromeNumber(arrayToInt(removeMaxElementNumber(1234773721))));
-//        numbersOfAP(129, 999);
-        System.out.println(decToBinFloat(9.15));
-
+//        numbersOfAP(12, 15);
+//        System.out.println(decToBinFloat(9.15));
     }
 
+    // TODO: rework
     public static String partArray(int[] arr, int srcPos, int length) {
         int[] arrPart = new int[length];
         System.arraycopy(arr, srcPos, arrPart, 0, length);
@@ -28,6 +28,7 @@ public class Work7 {
         return Arrays.toString(arrPart);
     }
 
+    // TODO: digits, naming, return array
     public static void evenArray(int firstDigit, int secondDigit) {
         int[] array = new int[secondDigit];
         for (int i = firstDigit - 1; i < secondDigit; i++) {
@@ -48,11 +49,12 @@ public class Work7 {
         return digits;
     }
 
+    // TODO: boolean
     public static void evenMinMaxSumNumber(int number) {
         int[] digits = digits(number);
         int min = digits[0];
         int max = digits[0];
-        for (int i = 0; i < digits.length; i++) {
+        for (int i = 1; i < digits.length; i++) {
             if (digits[i] < min) {
                 min = digits[i];
             } else if (digits[i] > max) {
@@ -68,6 +70,7 @@ public class Work7 {
         }
     }
 
+    // TODO: unworked
     public static void numbersOfAP(int firstNumber, int secondNumber) {
         int[] array = new int[secondNumber - firstNumber - 1];
         for (int i = 1; i < array.length; i++) {
@@ -89,6 +92,7 @@ public class Work7 {
         return true;
     }
 
+    // TODO: minDigit, call upper
     public static int maxDigit(int number) {
         int[] digits = digits(number);
         int max = digits[0], maxIndex = 0;
@@ -114,6 +118,7 @@ public class Work7 {
         return digitsNew;
     }
 
+    // TODO: use old work
     private static int arrayToInt(int[] array) {
         StringBuilder strNum = new StringBuilder();
 
@@ -135,6 +140,7 @@ public class Work7 {
         return newArray;
     }
 
+    // TODO: ArrayList to string
     public static ArrayList<Long> decToBin(long decNumber) {
         ArrayList<Long> binDigits = new ArrayList<Long>();
         while (decNumber > 0) {
