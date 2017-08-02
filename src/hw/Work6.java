@@ -4,86 +4,81 @@ package hw;
  * Created by lana on 31.01.17.
  */
 
-import java.util.ArrayList;
 import java.lang.String;
 
 public class Work6 {
     public static void main(String[] args) {
 
-        System.out.println(fibRecMethod(1));
-        System.out.println(fibSumMethod(7));
-        System.out.println(factorial(5));
-        System.out.println(nearFact(20));
-        System.out.println(isNumeric("cc"));
-        System.out.println(getNumeric("12354"));
-        ArrayList<Integer> newNum = getNumeric("1234567");
-        System.out.println(numFromString("vv222vv343"));
+//        System.out.println(fibRecMethod(1));
+//        System.out.println(fibSumMethod(7));
+//        System.out.println(factorial(5));
+//        System.out.println(nearFact(20));
+//        System.out.println(isNumeric("177833r"));
+//        System.out.println(getNumeric("45678"));
+//        System.out.println(numFromString("vv222vv343"));
     }
 
-    // TODO: integer
-    public static ArrayList<Integer> numFromString(String str) {
-        ArrayList<Integer> finalNumber = new ArrayList<Integer>();
+    public static int numFromString(String str) {
         char[] charArray = str.toCharArray();
+        int res = 0;
         for (int i = 0; i < charArray.length; i++) {
             if (isDigit(charArray[i])) {
-                int value = Character.getNumericValue(charArray[i]);
-                finalNumber.add(value);
+                res = res * 10 + Character.getNumericValue(charArray[i]);
             }
         }
-        return finalNumber;
+        return res;
     }
 
-    // TODO: rework
+    public static int getNumeric(String str) {
+        char[] charArray = str.toCharArray();
+        int res = 0;
+        if (!isNumeric(str)) {
+            return -1;
+        }
+        for (int i = 0; i < charArray.length; i++) {
+            res = res * 10 + Character.getNumericValue(charArray[i]);
+        }
+        return res;
+    }
+
+    public static boolean isNumeric(String str) {
+        char[] charArray = str.toCharArray();
+        for (int i = 0; i < charArray.length; i++) {
+            if (!isDigit(charArray[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private static boolean isDigit(char ch) {
         return Character.isDigit(ch);
     }
 
-    // TODO: integer
-    public static ArrayList<Integer> getNumeric(String str) {
-        ArrayList<Integer> num = new ArrayList<Integer>();
-        if (isNumeric(str)) {
-            for (char ch : str.toCharArray()) {
-                int i = Character.getNumericValue(ch);
-                num.add(i);
-            }
+    public static int nearFact(int number) {
+        if (number < 0) {
+            return 0;
         }
-        return num;
-    }
-
-    // TODO: rework
-    public static boolean isNumeric(String str) {
-        return str.matches("[+-]?\\d*(\\.\\d+)?");
-    }
-
-    // TODO: check if worked
-    public static int nearFact(int n) {
+        if (number == 0 || number == 1) {
+            return 1;
+        }
         int index = 1, buff = 1;
-        while (buff < n) {
+        while (buff < number) {
             index++;
             buff = factorial(index);
         }
-
-        return (buff - n > n - buff / index - 1) ? buff / index - 1 : buff;
+        return (buff - number > number - buff / index - 1) ? buff / index - 1 : buff;
     }
 
-    // TODO: rework without using factorial()
-    public static int[] factArr(int n) {
-        int[] factArr = new int[n];
-        for (int i = 0; i < n; i++) {
-            factArr[i] = factorial(i);
-        }
-        return factArr;
-    }
-
-    public static int factorial(int n) {
-        if (n < 0) {
+    public static int factorial(int number) {
+        if (number < 0) {
             return 0;
         }
-        if (n == 0 || n == 1) {
+        if (number == 0 || number == 1) {
             return 1;
         }
         int fact = 1;
-        for (int i = 2; i <= n; i++)
+        for (int i = 2; i <= number; i++)
             fact *= i;
         return fact;
     }
