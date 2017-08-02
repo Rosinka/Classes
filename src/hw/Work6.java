@@ -9,13 +9,13 @@ import java.lang.String;
 public class Work6 {
     public static void main(String[] args) {
 
-//        System.out.println(fibRecMethod(1));
-//        System.out.println(fibSumMethod(7));
-//        System.out.println(factorial(5));
-//        System.out.println(nearFact(20));
-//        System.out.println(isNumeric("177833r"));
-//        System.out.println(getNumeric("45678"));
-//        System.out.println(numFromString("vv222vv343"));
+        System.out.println(fibRecMethod(1));
+        System.out.println(fibSumMethod(7));
+        System.out.println(factorial(5));
+        System.out.println(nearFact(20));
+        System.out.println(isNumeric("177833r"));
+        System.out.println(getNumeric("45678"));
+        System.out.println(numFromString("vv222vv343"));
     }
 
     public static int numFromString(String str) {
