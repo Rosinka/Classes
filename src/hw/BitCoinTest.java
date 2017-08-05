@@ -6,7 +6,7 @@ public class BitCoinTest {
 
     public static void main(String[] args) {
 
-        System.out.println("Menu:\n Option 1: Call method 1\n Option 2: Call method 2\n Option 3: Call method 3\n");
+        System.out.println("Menu:\n Option 1: Call method 1\n Option 2: Call method 2\n Option 3: Call method 3\n Option 4: Exit\n");
         Scanner scan = new Scanner(System.in);
         int i = 1;
         while (i > 0) {
@@ -28,6 +28,8 @@ public class BitCoinTest {
             case 3:
                 method(3);
                 break;
+            case 4:
+                System.exit(0);
             default:
                 System.out.println("Invalid option");
                 break;
